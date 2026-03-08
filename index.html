@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nourish & Heal | Gut-Friendly Cafe</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #4A7C59; /* Sage Green for health */
+            --secondary-color: #D4A373; /* Warm earth tone */
+            --bg-color: #FAF9F6; /* Off-white */
+            --text-color: #333333;
+            --white: #ffffff;
+            --accent-color: #E8F5E9; /* Light green for benefit sections */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #3a6346;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .section {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .about {
+            background-color: var(--white);
+        }
+
+        .about h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* Menu Section - Organized by Benefits */
+        .menu-section {
+            background-color: var(--bg-color);
+        }
+
+        .benefit-category {
+            margin-bottom: 4rem;
+        }
+
+        .benefit-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-content {
+            padding: 1.5rem;
+        }
+
+        .menu-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .logo { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Nourish & Heal</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Our Philosophy</a></li>
+            <li><a href="#menu">Menu by Benefits</a></li>
+            <li><a href="#contact" class="cta-btn">Book a Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Food That Heals</h1>
+        <p>"Food that not only satisfies your tongue but heals your gut."</p>
+        <a href="#menu" class="cta-btn" style="background-color: var(--secondary-color);">View Our Menu</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <h2>Why We Cook</h2>
+        <p>
+            We believe that food is better than medicine. Our kitchen is dedicated to 
+            <strong>fermented foods, probiotics, and anti-inflammatory ingredients</strong> 
+            that support your microbiome. Enjoy the rich flavors you love without the bloating.
+        </p>
+    </section>
+
+    <!-- Menu Section - Organized by Health Benefits -->
+    <section class="section menu-section" id="menu">
+        <h2>Menu by Health Benefits</h2>
+        <p style="margin-bottom: 2rem;">Choose your food based on what your tongue craves for today</p>
+
+        <!-- Category 1: Gut Health -->
+        <div class="benefit-category">
+            <h3 class="benefit-title">🦠 Gut Health & Digestion</h3>
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <img src="https://www.okonomikitchen.com/wp-content/uploads/2021/02/ginger-soy-milk-pudding-dairy-free-vegan-1-of-1-1024x683.jpg" alt="Ginger Pudding">
+                    <div class="menu-content">
+                        <span class="tag">Probiotic</span>
+                        <h3>Ginger Pudding</h3>
+                        <p>Smooth ginger-infused pudding with digestive enzymes and probiotics.</p>
+                        <span class="price">Rs.220/bowl</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Energy & Vitality -->
+        <div class="benefit-category">
+            <h3 class="benefit-title">⚡ Energy & Vitality</h3>
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <img src="file:///C:/Users/malai/Downloads/2XRq8.jpg" alt="Ruby Quinoa Pancakes">
+                    <div class="menu-content">
+                        <span class="tag">Complete Protein</span>
+                        <h3>Ruby Quinoa Pancakes</h3>
+                        <p>Fluffy quinoa pancakes with ruby red quinoa for sustained energy.</p>
+                        <span class="price">Rs.270 4pcs</span>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <img src="file:///C:/Users/malai/OneDrive/Desktop/educational%20documents/image.jpg" alt="Protein Dumplings">
+                    <div class="menu-content">
+                        <span class="tag">High Protein</span>
+                        <h3>Protein Dumplings</h3>
+                        <p>Steamed dumplings filled with plant-based protein and herbs.</p>
+                        <span class="price">Rs.420 3pcs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: Immunity & Wellness -->
+        <div class="benefit-category">
+            <h3 class="benefit-title">🛡️ Immunity & Wellness</h3>
+            <div class="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <img src="https://bakeomaniac.com/wp-content/uploads/2021/02/Mandarin-Orange-Cake-400x400.png" alt="Mandarine Orange Cake">
+                    <div class="menu-content">
+                        <span class="tag">Vitamin C</span>
+                        <h3>Mandarine Orange Cake</h3>
+                        <p>Light citrus cake packed with vitamin C for immune support.</p>
+                        <span class="price">Rs.150/slice</span>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <img src="https://theloopywhisk.com/wp-content/uploads/2021/01/Blueberry-Cheesecake_730px-9.jpg.webp" alt="Blueberry Cheesecake">
+                    <div class="menu-content">
+                        <span class="tag">Antioxidant</span>
+                        <h3>Blueberry Cheesecake</h3>
+                        <p>Creamy cheesecake topped with antioxidant-rich blueberries.</p>
+                        <span class="price">Rs.170/slice</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>Nourish & Heal Cafe</h3>
+        <p>Gulberg II, Lahore, Punjab</p>
+        <p>Open Daily: 10am - 8pm</p>
+        <p>&copy; 2026 Nourish & Heal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
